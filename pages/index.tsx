@@ -12,13 +12,13 @@ export default function Home({ networks, githubRepos }: { networks: Networks, gi
     <>
       <NextSeo
         title="Non-custodial staking provider"
-        description="Description about pages."
+        description="Our reliable infrastructure can help you to enhance your staking rewards."
         canonical="https://stake-machine.com/"
         openGraph={{
           type: 'website',
           url: 'https://stake-machine.com/',
-          title: 'Stake Machine - PoS networks validator',
-          description: 'Reliable Web3 infrastructure',
+          title: 'Stake Machine - non-custdodial staking provider',
+          description: 'Our reliable infrastructure can help you to enhance your staking rewards.',
           site_name: 'Stake Machine',
         }}
         twitter={{
