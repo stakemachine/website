@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>64x64</title>
+    <g id="64x64" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#6366F1" x="0" y="0" width="64" height="64" rx="8"></rect>
+        <text id="S" font-family="Roboto-Black, Roboto" font-size="60" font-weight="800" letter-spacing="-1" fill="#FFFFFF">
+            <tspan x="13" y="54">S</tspan>
+        </text>
+    </g>
+</svg>
