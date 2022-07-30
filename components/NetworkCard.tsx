@@ -4,7 +4,7 @@ import { Network } from "../types/Types"
 export default function NetworkCard({ network }: { network: Network }) {
 
     return (
-        <div className="mb-6 mt-10 w-full max-w-xs break-words rounded-xl bg-indigo-100 shadow-lg ml-3 mr-3">
+        <div className="mb-6 mt-10 w-full max-w-xs break-words rounded-xl bg-indigo-100 shadow-lg ml-3 mr-3 py-4">
             <div className="px-6">
                 <div className="flex flex-wrap justify-center">
                     <div className="flex w-full justify-center">
