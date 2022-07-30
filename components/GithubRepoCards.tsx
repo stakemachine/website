@@ -23,7 +23,7 @@ export default function GithubRepoCards({ githubRepos }: { githubRepos: GithubRe
                     We love Open-Source
                 </h2>
 
-                <div className="flex flex-wrap pt-4 md:-mr-6">
+                <div className="flex flex-wrap pt-4 md:-mr-6 px-4">
                     {githubRepos?.map((repository: GithubRepo, index) => {
                         return (
                             <GithubRepoCard key={index} repository={repository} />

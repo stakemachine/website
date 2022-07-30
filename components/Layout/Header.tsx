@@ -18,14 +18,14 @@ export default function Header() {
 
     return (
         <header className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && 'bg-white backdrop-blur-sm shadow-lg'}`}>
-            <div className="max-w-6xl mx-auto px-5 sm:px-6">
+            <div className="max-w-6xl mx-auto">
                 <div className="flex items-center justify-between h-16 md:h-20">
 
 
 
                     {/* Site navigation */}
                     <div className="navbar bg-base-100">
-                        <div className="flex-1">
+                        <div className="flex-1 pl-4">
                             <Link href="/">
                                 <a className="normal-case text-lg font-medium"><span className="p-1">STAKE</span><span className="rounded bg-indigo-500 text-white p-1">MACHINE</span></a>
                             </Link>
