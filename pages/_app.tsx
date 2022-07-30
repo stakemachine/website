@@ -5,6 +5,7 @@ import MinFooter from '../components/Layout/MinFooter'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config'
+import Script from 'next/script'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -28,6 +29,22 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/*  Site footer */}
         <MinFooter />
 
+      </div>
+      <div className="container">
+        
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-19PFKBKPMG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-19PFKBKPMG');
+        `}
+        </Script>
       </div>
     </>
   )
