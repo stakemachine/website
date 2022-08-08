@@ -42,7 +42,7 @@ export var NetworksJson =
             "name": "The Graph",
             "desc": "The Graph is an indexing protocol for organizing blockchain data and making it easily accessible with GraphQL.",
             "slug": "thegraph",
-            "fee": 0.09,
+            "fee": 0.1,
             "apy": null,
             "coingecko_id": "the-graph",
             "symbol": "GRT",
