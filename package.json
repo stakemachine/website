@@ -10,7 +10,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^12.2.4",
+    "@next/bundle-analyzer": "^12.2.5",
     "@types/react-copy-to-clipboard": "^5.0.4",
     "daisyui": "^2.22.0",
     "next": "^12.2.4",
