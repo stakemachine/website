@@ -4,6 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['cdn.jsdelivr.net'],
+    unoptimized: true,
   },
 }
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
