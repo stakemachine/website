@@ -5,11 +5,6 @@ const nextConfig = {
   images: {
     domains: ['cdn.jsdelivr.net'],
   },
-  experimental: {
-    images: {
-      unoptimized: true,
-    },
-  },
 }
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
