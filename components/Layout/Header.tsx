@@ -34,34 +34,25 @@ export default function Header() {
               </Link>
             </div>
             <div className="flex-none">
-              <ul className="menu menu-horizontal p-0">
-                <li tabIndex={0}>
-                  <a className="btn-link">
-                    Stake
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                    </svg>
-                  </a>
-                  <ul className="p-2 bg-base-100">
-                    {NetworksJson.map((network: Network, index) => {
-                      return (
-                        <li key={index}>
-                          <Link
-                            href={"/networks/" + network.slug}
-                            className="text-base font-medium"
-                          >
-                            {network.name}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
+              <ul className="menu menu-horizontal px-1 items-center">
+                <li>
+                  <details>
+                    <summary>Stake</summary>
+                    <ul className="p-2 bg-base-100">
+                      {NetworksJson.map((network: Network, index) => {
+                        return (
+                          <li key={index}>
+                            <Link
+                              href={"/networks/" + network.slug}
+                              className="text-base font-medium"
+                            >
+                              {network.name}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </details>
                 </li>
                 <li className="hidden sm:flex">
                   <Link
