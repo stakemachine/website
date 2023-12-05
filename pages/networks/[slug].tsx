@@ -53,7 +53,7 @@ export default function NetworkInfo({ network }: { network: Network }) {
                 {network.name}
               </h3>
               <div className=" text-xs font-bold uppercase text-slate-500">
-                mainnet
+                {network.network}
               </div>
               <div className="w-full text-center">
                 <div className="flex justify-center">
