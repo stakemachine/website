@@ -20,4 +20,22 @@ export var NetworksJson = [
       },
     ],
   },
+  {
+    name: "Partisia",
+    desc: "Partisia Blockchain is the only blockchain that supports secure multiparty computation.",
+    slug: "partisia",
+    fee: 0.1,
+    apy: null,
+    symbol: "MPC",
+    logo: "https://partisiablockchain.com/wp-content/uploads/2023/09/footer-logo.svg",
+    tokens: 25000,
+    usd_rate: 0.1,
+    staking_url: "https://browser.partisiablockchain.com/delegated-to-others",
+    validators: [
+      {
+        address: "00a32433ea7bad4c8110d784e89a9711f02a5cac45",
+        name: "Baker node",
+      },
+    ],
+  },
 ];
