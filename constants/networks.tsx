@@ -24,15 +24,16 @@ export var NetworksJson = [
     name: "Partisia",
     desc: "Partisia Blockchain is the only blockchain that supports secure multiparty computation.",
     slug: "partisia",
-    fee: 0.1,
-    apy: null,
+    fee: 0.02,
+    apy: 0.1,
     coingecko_id: "partisia",
     symbol: "MPC",
     network: "partisia",
     logo: "https://partisiablockchain.com/wp-content/uploads/2023/09/footer-logo.svg",
     tokens: 25000,
     usd_rate: 0.1,
-    staking_url: "https://browser.partisiablockchain.com/delegated-to-others",
+    staking_url:
+      "https://partiscan.io/validators/00a32433ea7bad4c8110d784e89a9711f02a5cac45/stake",
     validators: [
       {
         address: "00a32433ea7bad4c8110d784e89a9711f02a5cac45",
