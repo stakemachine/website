@@ -22,7 +22,7 @@ export default function NetworkCard({ network }: { network: Network }) {
             {network.name}
           </h3>
           <div className="mt-0 mb-2 text-xs font-bold uppercase text-slate-500">
-            mainnet
+            {network.network}
           </div>
           <div className="w-full text-center">
             <div className="flex justify-center pb-0">
