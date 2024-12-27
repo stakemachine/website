@@ -48,7 +48,7 @@ export const NetworksJson = [
 		fee: 0.05,
 		apy: 0.1,
 		coingecko_id: "namada",
-		symbol: "MPC",
+		symbol: "NAM",
 		network: "mainnet",
 		logo: "https://namada.net/_next/static/media/namada-logo-symbol.dd39870e.svg",
 		tokens: 25000,
