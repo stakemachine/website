@@ -33,7 +33,12 @@ jobs:
       - name: Detect package manager
         id: detect-package-manager
         run: |
-          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
+          if [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
+            echo "::set-output name=manager::pnpm"
+            echo "::set-output name=command::install"
+            echo "::set-output name=runner::pnpm"
+            exit 0
+          elif [ -f "${{ github.workspace }}/yarn.lock" ]; then
             echo "::set-output name=manager::yarn"
             echo "::set-output name=command::install"
             echo "::set-output name=runner::yarn"
@@ -50,7 +55,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: "22"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Restore cache
         uses: actions/cache@v3
@@ -66,7 +71,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         # run: ANALYZE=true ${{ steps.detect-package-manager.outputs.runner }} next build
-        run: ANALYZE=true npm run build
+        run: ANALYZE=true npx next build
       #      - name: Static HTML export with Next.js
       #        run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact
