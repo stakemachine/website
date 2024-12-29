@@ -1,40 +1,25 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import { Network } from "../../types/Types";
-import { NetworksJson } from "../../constants/networks";
+import { NetworksJson } from "../../../constants/networks";
 import Image from "next/image";
 
-import { useState } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { NextSeo } from "next-seo";
 import Link from "next/link";
 
-export function getNetworkBySlug(slug: string): Network | undefined {
-  return NetworksJson.find((network) => network.slug === slug);
-}
-
-export function getAllNetworksPaths(): string[] {
-  return NetworksJson.map((network) => "/networks/" + network.slug);
-}
-
-export default function NetworkInfo({ network }: { network: Network }) {
+export default async function NetworkInfo({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   /* var price: number = GetGeckoPrice(network.coingecko_id); */
-  var [isCopied, setIsCopied] = useState(false);
+  const { slug } = await params;
 
+  const network = NetworksJson.find((network) => network.slug === slug);
+
+  if (!network) {
+    return <div>Network not found</div>;
+  }
   return (
     <>
-      <NextSeo
-        title={`Earn ${network.symbol} with`}
-        description={`Stake ${network.symbol} and earn rewards with Stake Machine`}
-        canonical={"https://stake-machine.com/networks/" + network.slug}
-        openGraph={{
-          url: "https://stake-machine.com/",
-          title: `Earn ${network.symbol} with Stake Machine`,
-          description: `Stake ${network.symbol} and earn rewards with Stake Machine`,
-        }}
-      />
-
       <section>
-        <div className="max-w-6xl mx-auto px-4 pt-20 sm:px-6 ">
+        <div className="max-w-6xl mx-auto px-4 pt-28 sm:px-6 min-h-screen">
           <div className="mb-6 mt-10 w-full break-words rounded-xl bg-indigo-100 shadow-lg">
             <div className="flex flex-wrap justify-center">
               <div className="flex w-full justify-center">
@@ -83,38 +68,10 @@ export default function NetworkInfo({ network }: { network: Network }) {
                 <ul>
                   {network?.validators.map((val) => (
                     <li key={val.address}>
-                      <div
-                        className="border p-4 rounded-lg flex bg-gray-50"
-                        onMouseLeave={() => setIsCopied(false)}
-                      >
+                      <div className="border p-4 rounded-lg flex bg-gray-50">
                         <div className="pr-3 font-light max-w-[16rem] sm:max-w-fit">
                           <p className="text-clip truncate">{val.address}</p>
                         </div>
-                        <CopyToClipboard
-                          text={val.address}
-                          onCopy={() => setIsCopied(true)}
-                        >
-                          <div
-                            className="tooltip cursor-pointer"
-                            data-tip={isCopied ? "Copied!" : "Copy"}
-                          >
-                            <svg
-                              width={24}
-                              height={24}
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth="1"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                              />
-                            </svg>
-                          </div>
-                        </CopyToClipboard>
                       </div>
                     </li>
                   ))}
@@ -140,19 +97,39 @@ export default function NetworkInfo({ network }: { network: Network }) {
     </>
   );
 }
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllNetworksPaths();
-  return {
-    paths,
-    fallback: false,
-  };
-};
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const network = getNetworkBySlug(params?.slug as string);
+export async function generateStaticParams() {
+  return NetworksJson.map((network) => ({
+    slug: network.slug,
+  }));
+}
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
+  const slug = (await params).slug;
+  const network = NetworksJson.find((network) => network.slug === slug);
+  if (!network) {
+    return <div>Network not found</div>;
+  }
   return {
-    props: {
-      network,
+    title: `Stake ${network.symbol} with`,
+    description: network.desc,
+    keywords: network.slug,
+    openGraph: {
+      type: "website",
+      url: `https://stake-machine.com/networks/${network.slug}`,
+      title: `Stake ${network.symbol} with Stake Machine`,
+      description: network.desc,
+      siteName: "Stake Machine",
+    },
+    twitter: {
+      title: `Stake ${network.symbol} with Stake Machine`,
+      description: network.desc,
+      site: "@stakemachine",
+      card: "summary_large_image",
     },
   };
 };
