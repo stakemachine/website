@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Stake Machine - non-custdodial staking provider",
     description:
       "Our reliable infrastructure can help you to enhance your staking rewards.",
-    siteName: "Stake Machine",
+    siteName: "Stake Machine - non-custdodial staking provider",
   },
   twitter: {
     title: "Stake Machine - non-custdodial staking provider",

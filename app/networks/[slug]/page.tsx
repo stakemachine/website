@@ -123,7 +123,7 @@ export const generateMetadata = async ({
       url: `https://stake-machine.com/networks/${network.slug}`,
       title: `Stake ${network.symbol} with Stake Machine`,
       description: network.desc,
-      siteName: "Stake Machine",
+      siteName: "Stake ${network.symbol} with Stake Machine",
     },
     twitter: {
       title: `Stake ${network.symbol} with Stake Machine`,
