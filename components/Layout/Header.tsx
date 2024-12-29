@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { NetworksJson } from "../../constants/networks";
 import type { Network } from "../../types/Types";
+import TextLogo from "../TextLogo";
 
 export default function Header() {
   const [top, setTop] = useState(true);
@@ -28,10 +29,7 @@ export default function Header() {
           <div className="navbar bg-base-100">
             <div className="flex-1 pl-4">
               <Link href="/" className="normal-case text-lg font-medium">
-                <span className="p-1">STAKE</span>
-                <span className="rounded bg-indigo-500 text-white p-1">
-                  MACHINE
-                </span>
+                <TextLogo />
               </Link>
             </div>
             <div className="flex-none">
