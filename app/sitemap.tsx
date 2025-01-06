@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://stake-machine.com"; // Replace with your actual domain
 
   // Define your static routes
-  const staticRoutes = [""].map((route) => ({
+  const staticRoutes = ["", "/networks"].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
   }));
